@@ -3,10 +3,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 import random
 import time
+import os
 
 ####################################################################################################
 # flask 객체 생성 및 기본 설정
-app = Flask(__name__, static_folder='/Users/chris/_Lecture/network/09.simpleWeb/public', template_folder='/Users/chris/_Lecture/network/09.simpleWeb/template')
+current_dir = os.path.dirname(os.path.realpath(__file__))
+app = Flask(__name__, static_folder=current_dir+'\\public', template_folder=current_dir+'\\template')
 
 app.secret_key = 'sjcu-netowrk_simpleWeb_Secret_Key_#2023#'
 users = {
