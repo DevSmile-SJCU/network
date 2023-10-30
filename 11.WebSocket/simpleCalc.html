@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SJUC - 간단한 계산기</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px 10px;
+            text-align: center;
+        }
+        input {
+            text-align: right;
+            border: none;
+        }
+        input:focus {
+            outline: none;
+        }
+        img {
+            width: 190px;
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="logo"/>
+    <table border="1">
+        <tr>
+            <td colspan="4">
+                <input type="text" id="formula">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <input type="text" id="result">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" onclick="reset()">AC</td>
+            <td onclick="clickOne('/')">/</td>
+        </tr>
+        <tr>
+            <td onclick="clickOne(7)">7</td>
+            <td onclick="clickOne(8)">8</td>
+            <td onclick="clickOne(9)">9</td>
+            <td onclick="clickOne('*')">*</td>
+        </tr>
+        <tr>
+            <td onclick="clickOne(4)">4</td>
+            <td onclick="clickOne(5)">5</td>
+            <td onclick="clickOne(6)">6</td>
+            <td onclick="clickOne('-')">-</td>
+        </tr>
+        <tr>
+            <td onclick="clickOne(1)">1</td>
+            <td onclick="clickOne(2)">2</td>
+            <td onclick="clickOne(3)">3</td>
+            <td onclick="clickOne('+')">+</td>
+        </tr>
+        <tr>
+            <td colspan="2" onclick="clickOne(0)">0</td>
+            <td onclick="clickOne('.')">.</td>
+            <td onclick="calculate()">=</td>
+        </tr>
+    </table>
+    <script>
+        function clickOne(char) {
+            var formula = document.getElementById('formula');
+            formula.value = formula.value + char;
+        }
+        function calculate() {
+            var formula = document.getElementById('formula');
+            var result = eval(formula.value); 
+            document.getElementById('result').value = result;
+        }
+        function reset() {
+            document.getElementById('formula').value = "";
+            document.getElementById('result').value = "";
+        }
+    </script>
+</body>
+</html>
